@@ -3,6 +3,6 @@ from .models import Productos
 
 class ProdForm(forms.ModelForm):
 
-    class Meta:
-        model = Productos
-        fields =['producto']
+     class Meta:
+         model = Productos
+         fields =['producto']

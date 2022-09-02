@@ -1,10 +1,16 @@
-{% extends "todo/layout.html" %}
-         <h1>Lista de productos</h1>
-
-          <ul>
-         {% for producto in productos %}
-            <li>{{ producto }}</li>
-         {% endfor %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>examen</title>
+    </head>
+    <body>
+       <h1>Lista de productos</h1>
+        <ul>
+        {% for producto in productos %}
+          <li>{{producto}}</li>
+          <button><a href="{% url 'eliminar' producto.id %}">eliminar</a></button>
+          <button><a href="{% url 'editar' producto.id %}">editar</a></button>
+          {% endfor %}
         </ul>
     </body>
 </html>
