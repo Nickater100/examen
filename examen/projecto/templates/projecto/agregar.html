@@ -1,0 +1,12 @@
+{% extends "todo/layout.html" %}
+        
+{% for producto in productos %}
+     
+     <form method="post">
+        {%csrf_token %}
+        {{ form }}
+        <button>Agregar Producto</button>
+     </form>
+
+{% endfor %}
+   
