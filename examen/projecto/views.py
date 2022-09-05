@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import MongoSerializers, PostSerializers
+from .serializers import JSONEncoder, MongoSerializers, PostSerializers
 from .models import Productos
 from rest_framework import status
 from django.http import Http404
@@ -63,6 +63,8 @@ class Post_APIView_Detail(APIView):
 
 class Post_Mongo(APIView):
     def get(self, request, format=None, *args, **kwargs):
-        post = col.find({})
+        post = col.find({}).limit(10)
+        print(post)
+        return Response(JSONEncoder().encode(list(post)))
         return Response(json.dumps(list(post)))
         
