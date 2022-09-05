@@ -1,8 +1,12 @@
-from dataclasses import fields
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from .models import Productos
 
-class Serializador(ModelSerializer):
+class PostSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Productos
-        fields=["id", "producto"]
+        model = Productos  
+        fields = ['id', "producto"]
+
+class MongoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Productos  
+        fields = ['_id',"action", "producto", "Query"]

@@ -1,9 +1,8 @@
 from django.urls import path
-from . import views
-
+from .views import *
+app_name = 'api'
 urlpatterns = [
- path("", views.home, name="home"),
- path("agregar/", views.agregar, name="agregar"),
- path("eliminar/<int:id>/", views.eliminar, name="eliminar"),
- path("editar/<int:id>/", views.editar, name="editar"),
+    path('productos', Post_APIView.as_view()), 
+    path('productos/<int:pk>/', Post_APIView_Detail.as_view()),   
+    path('mongo', Post_Mongo.as_view()),   
 ]
