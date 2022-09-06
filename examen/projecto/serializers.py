@@ -8,11 +8,6 @@ class PostSerializers(serializers.ModelSerializer):
         model = Productos  
         fields = ['id', "producto"]
 
-class MongoSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = Productos  
-        fields = ['_id',"action", "producto", "Query"]
-
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
         if isinstance(o, ObjectId):
